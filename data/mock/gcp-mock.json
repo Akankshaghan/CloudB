@@ -1,0 +1,325 @@
+{
+  "meta": {
+    "cloud": "gcp",
+    "project_id": "my-gcp-project-12345",
+    "project_name": "My GCP Project",
+    "billing_account": "ABCDEF-GHIJKL-MNOPQR",
+    "currency": "USD",
+    "last_updated": "2024-01-15T10:30:00Z"
+  },
+  "summary": {
+    "total_monthly_cost": 3890.40,
+    "previous_month_cost": 3620.10,
+    "cost_change_percent": 7.47,
+    "active_services": 8,
+    "total_resources": 38,
+    "cost_alerts": 2,
+    "projected_monthly_cost": 4050.00
+  },
+  "services": {
+    "compute_engine": {
+      "service_name": "Compute Engine",
+      "icon": "server",
+      "monthly_cost": 1540.20,
+      "cost_percentage": 39.59,
+      "trend": "up",
+      "trend_percent": 10.2,
+      "instances": [
+        {
+          "id": "projects/my-gcp-project-12345/zones/us-central1-a/instances/prod-web-vm-01",
+          "name": "prod-web-vm-01",
+          "machine_type": "n2-standard-8",
+          "status": "RUNNING",
+          "zone": "us-central1-a",
+          "cpu_utilization": 68.4,
+          "memory_utilization": 74.2,
+          "disk_read_kbps": 1240.5,
+          "disk_write_kbps": 820.4,
+          "network_in_gb": 42.8,
+          "network_out_gb": 98.4,
+          "monthly_cost": 620.40,
+          "uptime_hours": 720,
+          "preemptible": false,
+          "tags": ["production", "web-tier"],
+          "recommendations": []
+        },
+        {
+          "id": "projects/my-gcp-project-12345/zones/us-central1-b/instances/prod-api-vm-01",
+          "name": "prod-api-vm-01",
+          "machine_type": "n2-standard-16",
+          "status": "RUNNING",
+          "zone": "us-central1-b",
+          "cpu_utilization": 82.1,
+          "memory_utilization": 78.6,
+          "disk_read_kbps": 2480.2,
+          "disk_write_kbps": 1420.8,
+          "network_in_gb": 84.2,
+          "network_out_gb": 212.4,
+          "monthly_cost": 780.60,
+          "uptime_hours": 720,
+          "preemptible": false,
+          "tags": ["production", "api-tier"],
+          "recommendations": []
+        },
+        {
+          "id": "projects/my-gcp-project-12345/zones/us-central1-c/instances/dev-vm-01",
+          "name": "dev-vm-01",
+          "machine_type": "e2-medium",
+          "status": "RUNNING",
+          "zone": "us-central1-c",
+          "cpu_utilization": 5.8,
+          "memory_utilization": 22.4,
+          "disk_read_kbps": 48.2,
+          "disk_write_kbps": 24.1,
+          "network_in_gb": 0.6,
+          "network_out_gb": 1.4,
+          "monthly_cost": 139.20,
+          "uptime_hours": 720,
+          "preemptible": false,
+          "tags": ["development"],
+          "recommendations": ["⚠️ VM has <10% CPU utilization — switch to preemptible or stop off-hours to save ~$80/month"]
+        }
+      ],
+      "cost_history": [1380.20, 1420.80, 1468.30, 1510.10, 1540.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "gke": {
+      "service_name": "Google Kubernetes Engine",
+      "icon": "box",
+      "monthly_cost": 580.40,
+      "cost_percentage": 14.92,
+      "trend": "up",
+      "trend_percent": 12.4,
+      "clusters": [
+        {
+          "id": "projects/my-gcp-project-12345/zones/us-central1/clusters/prod-gke-cluster",
+          "name": "prod-gke-cluster",
+          "version": "1.28.4-gke.100",
+          "node_count": 5,
+          "node_machine_type": "n2-standard-4",
+          "cpu_utilization": 72.4,
+          "memory_utilization": 68.8,
+          "pod_count": 42,
+          "region": "us-central1",
+          "monthly_cost": 580.40,
+          "autopilot": false,
+          "recommendations": ["Enable GKE Autopilot to optimize node provisioning automatically"]
+        }
+      ],
+      "cost_history": [498.20, 520.80, 545.30, 562.40, 580.40],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "cloud_storage": {
+      "service_name": "Cloud Storage",
+      "icon": "archive",
+      "monthly_cost": 420.80,
+      "cost_percentage": 10.82,
+      "trend": "up",
+      "trend_percent": 7.4,
+      "buckets": [
+        {
+          "id": "prod-media-bucket-gcp",
+          "name": "prod-media-assets",
+          "storage_class": "STANDARD",
+          "location": "US",
+          "size_gb": 6840.5,
+          "object_count": 4820000,
+          "operations_monthly": 62000000,
+          "egress_gb": 1420.4,
+          "monthly_cost": 312.40,
+          "versioning": true,
+          "recommendations": ["Use Object Lifecycle Management to move objects to Nearline/Coldline after 60 days"]
+        },
+        {
+          "id": "prod-backups-bucket-gcp",
+          "name": "prod-database-backups",
+          "storage_class": "NEARLINE",
+          "location": "US",
+          "size_gb": 2420.2,
+          "object_count": 128000,
+          "operations_monthly": 1200000,
+          "egress_gb": 42.1,
+          "monthly_cost": 108.40,
+          "versioning": false,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [368.20, 380.80, 395.30, 410.40, 420.80],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "firestore": {
+      "service_name": "Firestore",
+      "icon": "layers",
+      "monthly_cost": 184.20,
+      "cost_percentage": 4.73,
+      "trend": "up",
+      "trend_percent": 15.8,
+      "databases": [
+        {
+          "id": "projects/my-gcp-project-12345/databases/(default)",
+          "name": "(default)",
+          "mode": "Native",
+          "reads_monthly": 128000000,
+          "writes_monthly": 42000000,
+          "deletes_monthly": 8400000,
+          "storage_gb": 48.4,
+          "monthly_cost": 184.20,
+          "region": "us-central1",
+          "recommendations": ["High write rate detected — review indexing strategy to reduce costs"]
+        }
+      ],
+      "cost_history": [142.20, 152.80, 164.30, 174.10, 184.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "bigquery": {
+      "service_name": "BigQuery",
+      "icon": "trending-up",
+      "monthly_cost": 480.20,
+      "cost_percentage": 12.34,
+      "trend": "up",
+      "trend_percent": 18.4,
+      "datasets": [
+        {
+          "id": "projects/my-gcp-project-12345/datasets/analytics_prod",
+          "name": "analytics_prod",
+          "location": "us-central1",
+          "tables": 42,
+          "total_size_gb": 1840.5,
+          "queries_monthly": 24000,
+          "bytes_processed_monthly_tb": 48.4,
+          "monthly_cost": 297.40,
+          "recommendations": ["⚠️ High query scan cost — partition tables by date and use column pruning"]
+        },
+        {
+          "id": "projects/my-gcp-project-12345/datasets/ml_training",
+          "name": "ml_training",
+          "location": "us-central1",
+          "tables": 18,
+          "total_size_gb": 6420.2,
+          "queries_monthly": 8000,
+          "bytes_processed_monthly_tb": 28.2,
+          "monthly_cost": 182.80,
+          "recommendations": ["Use reservation slots for predictable BI workloads to reduce on-demand cost"]
+        }
+      ],
+      "cost_history": [380.20, 408.80, 432.30, 465.40, 480.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "cloud_functions": {
+      "service_name": "Cloud Functions",
+      "icon": "zap",
+      "monthly_cost": 164.30,
+      "cost_percentage": 4.22,
+      "trend": "stable",
+      "trend_percent": 3.8,
+      "functions": [
+        {
+          "id": "fn-thumbnail-gen",
+          "name": "thumbnail-generator",
+          "runtime": "nodejs18",
+          "invocations_monthly": 2840000,
+          "avg_duration_ms": 280,
+          "error_rate_percent": 0.6,
+          "memory_mb": 256,
+          "monthly_cost": 98.40,
+          "region": "us-central1",
+          "recommendations": []
+        },
+        {
+          "id": "fn-webhook-handler",
+          "name": "webhook-event-handler",
+          "runtime": "python311",
+          "invocations_monthly": 420000,
+          "avg_duration_ms": 180,
+          "error_rate_percent": 0.4,
+          "memory_mb": 128,
+          "monthly_cost": 65.90,
+          "region": "us-central1",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [148.20, 152.80, 156.30, 160.40, 164.30],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "app_engine": {
+      "service_name": "App Engine",
+      "icon": "cloud",
+      "monthly_cost": 284.40,
+      "cost_percentage": 7.31,
+      "trend": "down",
+      "trend_percent": -3.2,
+      "applications": [
+        {
+          "id": "my-gcp-project-12345",
+          "name": "default",
+          "runtime": "nodejs18",
+          "env": "standard",
+          "instances_running": 4,
+          "cpu_utilization": 54.2,
+          "memory_utilization": 62.4,
+          "requests_per_second": 284.5,
+          "monthly_cost": 284.40,
+          "region": "us-central1",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [308.20, 298.80, 292.30, 288.40, 284.40],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "filestore": {
+      "service_name": "Filestore",
+      "icon": "folder",
+      "monthly_cost": 235.90,
+      "cost_percentage": 6.06,
+      "trend": "stable",
+      "trend_percent": 1.2,
+      "instances": [
+        {
+          "id": "projects/my-gcp-project-12345/locations/us-central1-a/instances/prod-filestore",
+          "name": "prod-filestore",
+          "tier": "PREMIUM",
+          "capacity_gb": 2560,
+          "used_capacity_gb": 1840.4,
+          "file_shares": 3,
+          "monthly_cost": 235.90,
+          "zone": "us-central1-a",
+          "recommendations": ["Utilization at 71% — downsize to BASIC_HDD tier for cost savings of ~$60/month"]
+        }
+      ],
+      "cost_history": [232.20, 232.80, 234.30, 235.10, 235.90],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert-gcp-001",
+      "severity": "medium",
+      "service": "compute_engine",
+      "resource": "dev-vm-01",
+      "message": "Dev VM running 24/7 with <10% CPU — high cost for low usage",
+      "potential_savings": 80.00,
+      "created_at": "2024-01-12T09:00:00Z"
+    },
+    {
+      "id": "alert-gcp-002",
+      "severity": "high",
+      "service": "bigquery",
+      "resource": "analytics_prod",
+      "message": "BigQuery scan cost spiked 40% — unoptimized queries detected",
+      "potential_savings": 120.00,
+      "created_at": "2024-01-14T11:00:00Z"
+    }
+  ],
+  "cost_breakdown_by_tag": {
+    "production": 3120.40,
+    "development": 480.20,
+    "staging": 289.80
+  },
+  "top_cost_services": [
+    { "service": "Compute Engine", "cost": 1540.20 },
+    { "service": "BigQuery", "cost": 480.20 },
+    { "service": "Google Kubernetes Engine", "cost": 580.40 },
+    { "service": "Cloud Storage", "cost": 420.80 },
+    { "service": "App Engine", "cost": 284.40 }
+  ]
+}

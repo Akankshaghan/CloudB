@@ -1,0 +1,27 @@
+PORT=3000
+NODE_ENV=development
+JWT_SECRET=cloud_cost_optimizer_secret_key_change_in_prod_2024
+
+# DATA SOURCE FLAG: false = mock data | true = real cloud APIs
+USE_REAL_DATA=false
+
+# Google Gemini AI (free tier - https://aistudio.google.com)
+GEMINI_API_KEY=kjkkjhjhhj
+
+# AWS
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=us-east-1
+
+# Azure
+AZURE_SUBSCRIPTION_ID=
+AZURE_TENANT_ID=
+AZURE_CLIENT_ID=
+AZURE_CLIENT_SECRET=
+
+# GCP
+GCP_PROJECT_ID=
+GCP_API_KEY=
+GOOGLE_APPLICATION_CREDENTIALS=
+
+SESSION_TIMEOUT_HOURS=8

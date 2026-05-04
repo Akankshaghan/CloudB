@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "cloud": "aws",
+    "account_id": "123456789012",
+    "account_alias": "my-aws-account",
+    "region": "us-east-1",
+    "currency": "USD",
+    "last_updated": "2024-01-15T10:30:00Z"
+  },
+  "summary": {
+    "total_monthly_cost": 4872.50,
+    "previous_month_cost": 4201.30,
+    "cost_change_percent": 15.97,
+    "active_services": 8,
+    "total_resources": 47,
+    "cost_alerts": 3,
+    "projected_monthly_cost": 5120.00
+  },
+  "services": {
+    "ec2": {
+      "service_name": "Amazon EC2",
+      "icon": "server",
+      "monthly_cost": 1850.20,
+      "cost_percentage": 37.97,
+      "trend": "up",
+      "trend_percent": 12.5,
+      "instances": [
+        {
+          "id": "i-0ab12cd34ef56gh78",
+          "name": "prod-web-server-01",
+          "type": "t3.xlarge",
+          "state": "running",
+          "region": "us-east-1",
+          "az": "us-east-1a",
+          "cpu_utilization": 72.4,
+          "memory_utilization": 68.1,
+          "network_in_gb": 45.2,
+          "network_out_gb": 112.8,
+          "monthly_cost": 182.40,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "Team": "Backend" },
+          "launch_time": "2023-10-01T08:00:00Z",
+          "public_ip": "54.214.100.10",
+          "recommendations": ["Consider right-sizing to t3.large — CPU avg under 40% last 30 days"]
+        },
+        {
+          "id": "i-1bc23de45fg67hi89",
+          "name": "prod-api-server-01",
+          "type": "m5.2xlarge",
+          "state": "running",
+          "region": "us-east-1",
+          "az": "us-east-1b",
+          "cpu_utilization": 85.7,
+          "memory_utilization": 78.3,
+          "network_in_gb": 78.4,
+          "network_out_gb": 234.6,
+          "monthly_cost": 368.80,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "Team": "API" },
+          "launch_time": "2023-09-15T12:00:00Z",
+          "public_ip": "52.204.200.20",
+          "recommendations": []
+        },
+        {
+          "id": "i-2cd34ef56gh78ij90",
+          "name": "dev-test-server",
+          "type": "t2.medium",
+          "state": "running",
+          "region": "us-west-2",
+          "az": "us-west-2a",
+          "cpu_utilization": 8.2,
+          "memory_utilization": 24.5,
+          "network_in_gb": 1.2,
+          "network_out_gb": 3.4,
+          "monthly_cost": 46.40,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Development", "Team": "Dev" },
+          "launch_time": "2024-01-01T09:00:00Z",
+          "public_ip": "54.100.50.30",
+          "recommendations": ["⚠️ Low utilization (8% CPU) — consider stopping when not in use, saving ~$46/month"]
+        },
+        {
+          "id": "i-3de45fg67hi89jk01",
+          "name": "prod-db-replica",
+          "type": "r5.xlarge",
+          "state": "running",
+          "region": "us-east-1",
+          "az": "us-east-1c",
+          "cpu_utilization": 45.6,
+          "memory_utilization": 82.3,
+          "network_in_gb": 22.1,
+          "network_out_gb": 8.9,
+          "monthly_cost": 252.60,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "Team": "Database" },
+          "launch_time": "2023-08-20T06:00:00Z",
+          "public_ip": null,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [1640.10, 1710.50, 1780.30, 1820.00, 1850.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "lambda": {
+      "service_name": "AWS Lambda",
+      "icon": "zap",
+      "monthly_cost": 423.80,
+      "cost_percentage": 8.70,
+      "trend": "up",
+      "trend_percent": 22.1,
+      "functions": [
+        {
+          "id": "fn-image-processor",
+          "name": "image-processor",
+          "runtime": "nodejs18.x",
+          "memory_mb": 512,
+          "timeout_sec": 30,
+          "invocations_monthly": 2450000,
+          "avg_duration_ms": 245,
+          "error_rate_percent": 0.8,
+          "monthly_cost": 185.60,
+          "region": "us-east-1",
+          "recommendations": ["Enable Provisioned Concurrency to reduce cold starts"]
+        },
+        {
+          "id": "fn-email-sender",
+          "name": "email-notification-sender",
+          "runtime": "python3.11",
+          "memory_mb": 128,
+          "timeout_sec": 10,
+          "invocations_monthly": 850000,
+          "avg_duration_ms": 120,
+          "error_rate_percent": 0.2,
+          "monthly_cost": 42.30,
+          "region": "us-east-1",
+          "recommendations": []
+        },
+        {
+          "id": "fn-data-aggregator",
+          "name": "data-aggregator-nightly",
+          "runtime": "python3.11",
+          "memory_mb": 1024,
+          "timeout_sec": 900,
+          "invocations_monthly": 31,
+          "avg_duration_ms": 780000,
+          "error_rate_percent": 3.2,
+          "monthly_cost": 195.90,
+          "region": "us-east-1",
+          "recommendations": ["⚠️ High error rate (3.2%) — investigate timeouts", "Consider Step Functions for long-running workflows"]
+        }
+      ],
+      "cost_history": [310.20, 345.80, 380.10, 400.60, 423.80],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "s3": {
+      "service_name": "Amazon S3",
+      "icon": "database",
+      "monthly_cost": 687.40,
+      "cost_percentage": 14.11,
+      "trend": "up",
+      "trend_percent": 8.3,
+      "buckets": [
+        {
+          "id": "prod-media-bucket",
+          "name": "prod-media-assets-2024",
+          "size_gb": 4820.5,
+          "object_count": 2840000,
+          "storage_class": "STANDARD",
+          "requests_monthly": 45000000,
+          "data_transfer_gb": 820.4,
+          "region": "us-east-1",
+          "monthly_cost": 412.80,
+          "versioning": true,
+          "public_access": false,
+          "recommendations": ["Move objects older than 90 days to S3 Glacier — save ~$120/month"]
+        },
+        {
+          "id": "dev-artifacts-bucket",
+          "name": "dev-build-artifacts",
+          "size_gb": 1240.2,
+          "object_count": 180000,
+          "storage_class": "STANDARD",
+          "requests_monthly": 1200000,
+          "data_transfer_gb": 45.2,
+          "region": "us-east-1",
+          "monthly_cost": 180.60,
+          "versioning": true,
+          "public_access": false,
+          "recommendations": ["⚠️ Old build artifacts detected — enable lifecycle policy to delete artifacts > 30 days"]
+        },
+        {
+          "id": "logs-bucket",
+          "name": "app-logs-archive",
+          "size_gb": 680.1,
+          "object_count": 12000000,
+          "storage_class": "STANDARD_IA",
+          "requests_monthly": 500000,
+          "data_transfer_gb": 12.1,
+          "region": "us-east-1",
+          "monthly_cost": 94.00,
+          "versioning": false,
+          "public_access": false,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [595.00, 620.80, 648.30, 668.90, 687.40],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "rds": {
+      "service_name": "Amazon RDS",
+      "icon": "hard-drive",
+      "monthly_cost": 980.50,
+      "cost_percentage": 20.12,
+      "trend": "stable",
+      "trend_percent": 1.2,
+      "instances": [
+        {
+          "id": "prod-mysql-01",
+          "name": "prod-mysql-primary",
+          "engine": "mysql 8.0",
+          "instance_class": "db.r5.2xlarge",
+          "status": "available",
+          "multi_az": true,
+          "storage_gb": 500,
+          "storage_type": "gp3",
+          "cpu_utilization": 42.3,
+          "connections": 285,
+          "read_iops": 1420,
+          "write_iops": 890,
+          "monthly_cost": 680.40,
+          "region": "us-east-1",
+          "automated_backups": true,
+          "recommendations": []
+        },
+        {
+          "id": "dev-postgres-01",
+          "name": "dev-postgres-db",
+          "engine": "postgres 15.2",
+          "instance_class": "db.t3.medium",
+          "status": "available",
+          "multi_az": false,
+          "storage_gb": 100,
+          "storage_type": "gp2",
+          "cpu_utilization": 12.1,
+          "connections": 8,
+          "read_iops": 120,
+          "write_iops": 45,
+          "monthly_cost": 300.10,
+          "region": "us-east-1",
+          "automated_backups": true,
+          "recommendations": ["⚠️ Dev database running 24/7 — use RDS stop/start to save ~$150/month"]
+        }
+      ],
+      "cost_history": [968.20, 972.10, 978.80, 975.40, 980.50],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "dynamodb": {
+      "service_name": "Amazon DynamoDB",
+      "icon": "layers",
+      "monthly_cost": 234.60,
+      "cost_percentage": 4.81,
+      "trend": "up",
+      "trend_percent": 18.4,
+      "tables": [
+        {
+          "id": "sessions-table",
+          "name": "user-sessions",
+          "billing_mode": "PAY_PER_REQUEST",
+          "item_count": 4820000,
+          "size_gb": 24.5,
+          "read_units_consumed": 2840000,
+          "write_units_consumed": 1240000,
+          "monthly_cost": 148.30,
+          "region": "us-east-1",
+          "global_tables": false,
+          "recommendations": ["Switch to Provisioned Capacity — predictable traffic pattern detected, save ~$40/month"]
+        },
+        {
+          "id": "products-table",
+          "name": "product-catalog",
+          "billing_mode": "PROVISIONED",
+          "item_count": 125000,
+          "size_gb": 8.2,
+          "read_units_consumed": 480000,
+          "write_units_consumed": 85000,
+          "monthly_cost": 86.30,
+          "region": "us-east-1",
+          "global_tables": false,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [180.40, 196.20, 210.80, 225.10, 234.60],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "cloudfront": {
+      "service_name": "Amazon CloudFront",
+      "icon": "globe",
+      "monthly_cost": 312.80,
+      "cost_percentage": 6.42,
+      "trend": "down",
+      "trend_percent": -4.2,
+      "distributions": [
+        {
+          "id": "E1ABCDEFGHIJKL",
+          "name": "prod-cdn",
+          "domain": "d1abc234efgh56.cloudfront.net",
+          "origins": ["prod-media-assets-2024.s3.amazonaws.com"],
+          "requests_monthly": 120000000,
+          "data_transfer_gb": 2840.5,
+          "cache_hit_rate": 87.4,
+          "monthly_cost": 312.80,
+          "status": "Deployed",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [340.20, 328.40, 320.10, 326.00, 312.80],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "ecs": {
+      "service_name": "Amazon ECS / EKS",
+      "icon": "box",
+      "monthly_cost": 248.10,
+      "cost_percentage": 5.09,
+      "trend": "up",
+      "trend_percent": 6.8,
+      "clusters": [
+        {
+          "id": "prod-ecs-cluster",
+          "name": "production-cluster",
+          "type": "ECS",
+          "launch_type": "FARGATE",
+          "running_tasks": 12,
+          "pending_tasks": 0,
+          "services": 4,
+          "cpu_reserved": 6144,
+          "memory_reserved_mb": 24576,
+          "monthly_cost": 248.10,
+          "region": "us-east-1",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [220.30, 228.90, 235.60, 242.80, 248.10],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "elasticbeanstalk": {
+      "service_name": "AWS Elastic Beanstalk",
+      "icon": "cloud",
+      "monthly_cost": 135.10,
+      "cost_percentage": 2.77,
+      "trend": "stable",
+      "trend_percent": 0.5,
+      "environments": [
+        {
+          "id": "eb-prod-env",
+          "name": "prod-webapp-env",
+          "platform": "Node.js 18",
+          "health": "Green",
+          "instances": 2,
+          "instance_type": "t3.small",
+          "monthly_cost": 135.10,
+          "region": "us-east-1",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [133.20, 134.10, 134.80, 135.00, 135.10],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert-001",
+      "severity": "high",
+      "service": "ec2",
+      "resource": "dev-test-server",
+      "message": "EC2 instance has <10% CPU utilization for 30 days — idle resource",
+      "potential_savings": 46.40,
+      "created_at": "2024-01-10T09:00:00Z"
+    },
+    {
+      "id": "alert-002",
+      "severity": "medium",
+      "service": "s3",
+      "resource": "dev-build-artifacts",
+      "message": "S3 bucket missing lifecycle policy — accumulating stale artifacts",
+      "potential_savings": 80.00,
+      "created_at": "2024-01-12T14:00:00Z"
+    },
+    {
+      "id": "alert-003",
+      "severity": "medium",
+      "service": "lambda",
+      "resource": "data-aggregator-nightly",
+      "message": "Lambda function error rate above 3% — review logs",
+      "potential_savings": 0,
+      "created_at": "2024-01-14T08:30:00Z"
+    }
+  ],
+  "cost_breakdown_by_tag": {
+    "Production": 3840.20,
+    "Development": 682.10,
+    "Staging": 350.20
+  },
+  "top_cost_services": [
+    { "service": "Amazon RDS", "cost": 980.50 },
+    { "service": "Amazon EC2", "cost": 1850.20 },
+    { "service": "Amazon S3", "cost": 687.40 },
+    { "service": "AWS Lambda", "cost": 423.80 },
+    { "service": "Amazon CloudFront", "cost": 312.80 }
+  ]
+}

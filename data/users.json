@@ -1,0 +1,75 @@
+{
+  "users": [
+    {
+      "id": "user-001",
+      "username": "admin",
+      "email": "admin@cloudoptimizer.local",
+      "password": "admin123",
+      "name": "Admin User",
+      "connectedClouds": [
+        "aws",
+        "azure"
+      ]
+    },
+    {
+      "id": "user-002",
+      "username": "demo",
+      "email": "demo@cloudoptimizer.local",
+      "password": "demo123",
+      "name": "Demo User",
+      "connectedClouds": [
+        "aws"
+      ]
+    },
+    {
+      "id": "user-1775760989418",
+      "username": "Ron",
+      "email": "ron@gmail.com",
+      "password": "happy",
+      "name": "Ron G",
+      "connectedClouds": [
+        "aws"
+      ]
+    }
+  ],
+  "credentials": {
+    "user-001": {
+      "aws": {
+        "connected": true,
+        "connectedAt": "2026-05-04T05:09:59.714Z",
+        "credentials": {
+          "accessKeyId": "yhejkjklmsfnjkjknsdf",
+          "secretAccessKey": "ysudghjdasnmcfsdn"
+        }
+      },
+      "azure": {
+        "connected": true,
+        "connectedAt": "2026-05-04T05:10:16.454Z",
+        "credentials": {
+          "subscriptionId": "sdfjhknwmerferefwerdwef",
+          "clientSecret": "wuedhkjaslmf,nwmebmnkdfjlm"
+        }
+      }
+    },
+    "user-1775760989418": {
+      "aws": {
+        "connected": true,
+        "connectedAt": "2026-04-09T18:56:29.418Z",
+        "credentials": {
+          "accessKeyId": "AKIA6HJZ66YIPG32XN3K",
+          "secretAccessKey": "x6n5+5Vl5U8D4f1z5F/4fQ=="
+        }
+      }
+    },
+    "user-002": {
+      "aws": {
+        "connected": true,
+        "connectedAt": "2026-04-09T20:57:13.676Z",
+        "credentials": {
+          "accessKeyId": "jsdlk",
+          "secretAccessKey": "difjl"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "cloud": "azure",
+    "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "subscription_name": "My Azure Subscription",
+    "tenant": "mycompany.onmicrosoft.com",
+    "currency": "USD",
+    "last_updated": "2024-01-15T10:30:00Z"
+  },
+  "summary": {
+    "total_monthly_cost": 5241.30,
+    "previous_month_cost": 4980.90,
+    "cost_change_percent": 5.23,
+    "active_services": 8,
+    "total_resources": 52,
+    "cost_alerts": 2,
+    "projected_monthly_cost": 5450.00
+  },
+  "services": {
+    "virtual_machines": {
+      "service_name": "Azure Virtual Machines",
+      "icon": "server",
+      "monthly_cost": 2180.40,
+      "cost_percentage": 41.60,
+      "trend": "up",
+      "trend_percent": 8.2,
+      "instances": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Compute/virtualMachines/prod-vm-01",
+          "name": "prod-vm-web-01",
+          "size": "Standard_D4s_v3",
+          "os": "Ubuntu 22.04",
+          "status": "running",
+          "region": "East US",
+          "resource_group": "prod-rg",
+          "cpu_utilization": 65.4,
+          "memory_utilization": 72.1,
+          "disk_read_mbps": 45.2,
+          "disk_write_mbps": 28.4,
+          "network_in_gb": 34.5,
+          "network_out_gb": 89.2,
+          "monthly_cost": 580.20,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "CostCenter": "Engineering" },
+          "recommendations": []
+        },
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Compute/virtualMachines/prod-vm-02",
+          "name": "prod-vm-api-01",
+          "size": "Standard_E8s_v3",
+          "os": "Windows Server 2022",
+          "status": "running",
+          "region": "East US",
+          "resource_group": "prod-rg",
+          "cpu_utilization": 78.9,
+          "memory_utilization": 84.3,
+          "disk_read_mbps": 120.4,
+          "disk_write_mbps": 68.2,
+          "network_in_gb": 56.8,
+          "network_out_gb": 142.6,
+          "monthly_cost": 980.60,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "CostCenter": "Engineering" },
+          "recommendations": []
+        },
+        {
+          "id": "/subscriptions/xxx/resourceGroups/dev-rg/providers/Microsoft.Compute/virtualMachines/dev-vm-01",
+          "name": "dev-vm-test-01",
+          "size": "Standard_B2s",
+          "os": "Ubuntu 20.04",
+          "status": "running",
+          "region": "West US 2",
+          "resource_group": "dev-rg",
+          "cpu_utilization": 6.2,
+          "memory_utilization": 18.4,
+          "disk_read_mbps": 2.1,
+          "disk_write_mbps": 1.4,
+          "network_in_gb": 0.8,
+          "network_out_gb": 1.2,
+          "monthly_cost": 72.40,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Development" },
+          "recommendations": ["⚠️ VM has <10% CPU utilization — consider B1s or shut down off-hours, save ~$40/month"]
+        },
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Compute/virtualMachines/prod-vm-cache",
+          "name": "prod-vm-cache-01",
+          "size": "Standard_D8s_v3",
+          "os": "Ubuntu 22.04",
+          "status": "running",
+          "region": "East US",
+          "resource_group": "prod-rg",
+          "cpu_utilization": 52.3,
+          "memory_utilization": 91.2,
+          "disk_read_mbps": 88.4,
+          "disk_write_mbps": 42.1,
+          "network_in_gb": 124.5,
+          "network_out_gb": 198.4,
+          "monthly_cost": 547.20,
+          "uptime_hours": 720,
+          "tags": { "Environment": "Production", "CostCenter": "Infrastructure" },
+          "recommendations": ["Memory is consistently above 90% — consider upgrading to Standard_E8s_v3"]
+        }
+      ],
+      "cost_history": [1980.20, 2040.80, 2090.30, 2140.10, 2180.40],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "app_service": {
+      "service_name": "Azure App Service",
+      "icon": "layout",
+      "monthly_cost": 480.20,
+      "cost_percentage": 9.16,
+      "trend": "stable",
+      "trend_percent": 2.1,
+      "plans": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Web/serverfarms/prod-asp",
+          "name": "prod-app-service-plan",
+          "tier": "PremiumV3 P2v3",
+          "region": "East US",
+          "apps": ["api-backend", "admin-portal", "webhook-handler"],
+          "cpu_utilization": 58.4,
+          "memory_utilization": 62.1,
+          "monthly_cost": 480.20,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [460.10, 465.80, 470.20, 476.40, 480.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "functions": {
+      "service_name": "Azure Functions",
+      "icon": "zap",
+      "monthly_cost": 198.40,
+      "cost_percentage": 3.79,
+      "trend": "up",
+      "trend_percent": 14.8,
+      "functions": [
+        {
+          "id": "fn-media-resize",
+          "name": "media-image-resize",
+          "runtime": "Node.js 18",
+          "invocations_monthly": 1840000,
+          "avg_duration_ms": 380,
+          "error_rate_percent": 1.2,
+          "monthly_cost": 142.80,
+          "region": "East US",
+          "recommendations": ["Enable Application Insights to detect high-duration outliers"]
+        },
+        {
+          "id": "fn-cleanup",
+          "name": "scheduled-cleanup-job",
+          "runtime": "Python 3.10",
+          "invocations_monthly": 720,
+          "avg_duration_ms": 45000,
+          "error_rate_percent": 0.0,
+          "monthly_cost": 55.60,
+          "region": "East US",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [158.20, 168.80, 178.30, 190.10, 198.40],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "aks": {
+      "service_name": "Azure Kubernetes Service",
+      "icon": "box",
+      "monthly_cost": 620.80,
+      "cost_percentage": 11.84,
+      "trend": "up",
+      "trend_percent": 9.4,
+      "clusters": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.ContainerService/managedClusters/prod-aks",
+          "name": "prod-aks-cluster",
+          "kubernetes_version": "1.28.3",
+          "node_count": 6,
+          "node_vm_size": "Standard_D4s_v3",
+          "cpu_utilization": 68.4,
+          "memory_utilization": 74.2,
+          "pod_count": 48,
+          "region": "East US",
+          "monthly_cost": 620.80,
+          "recommendations": ["Enable cluster autoscaler to reduce node count during off-peak"]
+        }
+      ],
+      "cost_history": [548.20, 562.80, 585.30, 602.40, 620.80],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "blob_storage": {
+      "service_name": "Azure Blob Storage",
+      "icon": "archive",
+      "monthly_cost": 542.30,
+      "cost_percentage": 10.35,
+      "trend": "up",
+      "trend_percent": 6.3,
+      "accounts": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Storage/storageAccounts/prodstorageacct",
+          "name": "prodstorageacct",
+          "tier": "Standard LRS",
+          "size_gb": 8420.4,
+          "containers": 12,
+          "transactions_monthly": 84000000,
+          "egress_gb": 1240.5,
+          "monthly_cost": 402.80,
+          "region": "East US",
+          "recommendations": ["Enable lifecycle management to move cold blobs to Cool/Archive tier"]
+        },
+        {
+          "id": "/subscriptions/xxx/resourceGroups/dev-rg/providers/Microsoft.Storage/storageAccounts/devstorageacct",
+          "name": "devstorageacct",
+          "tier": "Standard LRS",
+          "size_gb": 1280.2,
+          "containers": 8,
+          "transactions_monthly": 2400000,
+          "egress_gb": 124.2,
+          "monthly_cost": 139.50,
+          "region": "West US 2",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [485.20, 498.80, 512.30, 528.40, 542.30],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "sql_database": {
+      "service_name": "Azure SQL Database",
+      "icon": "database",
+      "monthly_cost": 840.20,
+      "cost_percentage": 16.03,
+      "trend": "stable",
+      "trend_percent": 1.8,
+      "databases": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.Sql/servers/prod-sql/databases/prod-db",
+          "name": "prod-primary-db",
+          "tier": "Business Critical Gen5 8 vCores",
+          "status": "Online",
+          "size_gb": 320.4,
+          "max_size_gb": 1024,
+          "cpu_percent": 48.2,
+          "dtu_percent": null,
+          "connections": 142,
+          "monthly_cost": 840.20,
+          "region": "East US",
+          "geo_replication": true,
+          "recommendations": []
+        }
+      ],
+      "cost_history": [824.20, 828.80, 832.30, 836.40, 840.20],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "cosmos_db": {
+      "service_name": "Azure Cosmos DB",
+      "icon": "layers",
+      "monthly_cost": 284.50,
+      "cost_percentage": 5.43,
+      "trend": "up",
+      "trend_percent": 20.1,
+      "accounts": [
+        {
+          "id": "/subscriptions/xxx/resourceGroups/prod-rg/providers/Microsoft.DocumentDB/databaseAccounts/prod-cosmos",
+          "name": "prod-cosmos-account",
+          "api": "Core (SQL)",
+          "regions": ["East US", "West Europe"],
+          "total_request_units_sec": 8000,
+          "consumed_request_units_sec": 5420,
+          "storage_gb": 84.2,
+          "monthly_cost": 284.50,
+          "region": "East US",
+          "recommendations": ["RU utilization is 67% — consider reducing provisioned RUs from 8000 to 6000"]
+        }
+      ],
+      "cost_history": [208.20, 224.80, 248.30, 265.40, 284.50],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    },
+    "file_storage": {
+      "service_name": "Azure File Storage",
+      "icon": "folder",
+      "monthly_cost": 94.50,
+      "cost_percentage": 1.80,
+      "trend": "stable",
+      "trend_percent": 0.8,
+      "shares": [
+        {
+          "id": "prod-file-share-01",
+          "name": "prod-shared-assets",
+          "size_gb": 840.2,
+          "used_gb": 612.4,
+          "tier": "Transaction optimized",
+          "monthly_cost": 94.50,
+          "region": "East US",
+          "recommendations": []
+        }
+      ],
+      "cost_history": [92.20, 92.80, 93.30, 94.10, 94.50],
+      "months": ["Sep", "Oct", "Nov", "Dec", "Jan"]
+    }
+  },
+  "alerts": [
+    {
+      "id": "alert-az-001",
+      "severity": "medium",
+      "service": "virtual_machines",
+      "resource": "dev-vm-test-01",
+      "message": "VM running 24/7 with <10% CPU — consider auto-shutdown schedule",
+      "potential_savings": 40.00,
+      "created_at": "2024-01-11T10:00:00Z"
+    },
+    {
+      "id": "alert-az-002",
+      "severity": "medium",
+      "service": "cosmos_db",
+      "resource": "prod-cosmos-account",
+      "message": "Cosmos DB RU utilization consistently below 70% — over-provisioned",
+      "potential_savings": 56.00,
+      "created_at": "2024-01-13T16:00:00Z"
+    }
+  ],
+  "cost_breakdown_by_tag": {
+    "Production": 4180.40,
+    "Development": 680.60,
+    "Staging": 380.30
+  },
+  "top_cost_services": [
+    { "service": "Azure Virtual Machines", "cost": 2180.40 },
+    { "service": "Azure SQL Database", "cost": 840.20 },
+    { "service": "Azure Kubernetes Service", "cost": 620.80 },
+    { "service": "Azure Blob Storage", "cost": 542.30 },
+    { "service": "Azure App Service", "cost": 480.20 }
+  ]
+}
