@@ -6,7 +6,7 @@ JWT_SECRET=cloud_cost_optimizer_secret_key_change_in_prod_2024
 USE_REAL_DATA=false
 
 # Google Gemini AI (free tier - https://aistudio.google.com)
-GEMINI_API_KEY=kjkkjhjhhj
+GEMINI_API_KEY=AQ.Ab8RN6KzVi4e1o3NMNqcLNgZ8j542ou-EJpoS_CLTxzXwHAsVA
 
 # AWS
 AWS_ACCESS_KEY_ID=
